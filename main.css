@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+body {
+    height: 3550px;
+    background: linear-gradient(180deg, #ffffff 0%, #8a8a8a 100%);
+    backdrop-filter: blur(1px);
+    /*La til en gradient som bakgrunn, fra hvit til grå. Bluret den for å unngår graident bands*/
+}
+
+.page_wrapper {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);;
+    grid-gap: 85%;
+    margin-top: 3%;
+}
+
+.content_wrapper {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);;;
+    grid-gap: 10%;
+    margin-left: 27%;
+    margin-right: 27%;
+    margin-top: 7%;
+    text-align: center;
+}
+
+.header {
+    text-align: left;
+    margin-left: 1%;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 250%;
+    position: fixed;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+#canvas-mesterverk {
+    border: 1.5px solid black;
+}
+
+
+.header_medium {
+    font-family: "Bebas Neue", serif;
+    font-weight: normal;
+    font-size: 140%;
+}
+
+.description {
+    margin-top: 2.5%;
+    font-family: "Quicksand", sans-serif;
+    font-size: 100%;
+}
+
+.picture {
+    margin-top: 3%;
+}
+
+.ellipse:hover {
+    fill: #DA4567;
+}
+
+.doc_button {
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #606060;
+    color: #fff;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}

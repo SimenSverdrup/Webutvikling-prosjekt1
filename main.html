@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mitt Abstrakte Bilde</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!--Favicon er bildet som vises i fanen i nettleseren-->
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="assets/jquery-3.5.1.min.js"></script>
+    <script src="jquery.js"></script>
+</head>
+<body>
+<div class="page_wrapper">
+    <div class="header">
+        Mitt Abstrakte Bilde
+    </div>
+    <div class="content_wrapper">
+        <div class="canvas">
+            <div class="header_medium">
+                "De fire elementer" - et Canvas-basert kunstverk
+            </div>
+            <div class=picture">
+                <canvas id="canvas-mesterverk" width="402" height="352">
+                    <script src="canvas.js"></script>
+                </canvas>
+            </div>
+            <div class="description">
+                Arnulf Frøkeland har i dette moderne kunstverket fanget sanntidens
+                zeitgeist gjennom former som ved første øyenkast fremstår som simple.
+                Verket er basert på de fire elementene fra angelisk folketro, som gjerne
+                opptrer i form av en likesidet trekant, en sirkel, et kvadrat og en ellipse.
+                Frøkeland har på glimrende vis blandet disse klassiske og tidløse formene med høyaktuell tematikk.
+                På samme måte som sosiale relasjoner åpner en fornyet forståelse for et annet menneskes
+                sjel, vil interaksjon med elementene tilføye nye aspekter ved antatte veletablerte sannheter.
+            </div>
+        </div>
+        <div class="svg">
+            <div class="header_medium">
+                "De falske elementer" - et SVG-basert kunstverk
+            </div>
+            <div class=picture">
+                <svg width="402" height="352" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
+                    <!--2px større enn rektangelet, for å få med rammen-->
+                    <rect id="ramme" width="400" height="350" style="fill:rgb(255,255,255);stroke-width:2;stroke:rgb(0,0,0)"/>
+                    <defs>
+                        <!--Tatt fra https://www.w3schools.com/html/html5_svg.asp-->
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="50%">
+                            <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect id="sqr" x="2" y="2" width="200" height="175" fill="url(#grad)" style="cursor:pointer;">
+                        <animate attributeName="rx" values="0;110;0" dur="5s" begin="sqr.click" repeatCount="1"/>
+                    </rect>
+                    <circle id="circle1" r="10" cx="300" cy="88" fill="rgb(82, 30, 135)" style="cursor:pointer;">
+                        <animate attributeName="r" values="0;80;10" dur="4s" begin="circle1.click" repeatCount="1"></animate>
+                    </circle>
+                    <circle id="circle2" r="0" cx="300" cy="88" fill="rgb(125, 30, 135)" style="cursor:pointer;">
+                        <animate attributeName="r" values="0;80;0" dur="4s" begin="circle1.click+0.5s" repeatCount="1"></animate>
+                    </circle>
+                    <circle id="circle3" r="0" cx="300" cy="88" fill="rgb(135, 30, 68)" style="cursor:pointer;">
+                        <animate attributeName="r" values="0;80;0" dur="4s" begin="circle1.click+1s" repeatCount="1"></animate>
+                    </circle>
+                    <circle id="circle4" r="0" cx="300" cy="88" fill="rgb(33, 30, 135)" style="cursor:pointer;">
+                        <animate attributeName="r" values="0;80;0" dur="4s" begin="circle1.click+1.5s" repeatCount="1"></animate>
+                    </circle>
+                    <polygon id="triangle" points="100,220 150,300 50,300" fill="url(#grad)" style="cursor:pointer;">
+                        <animate attributeName="points" values="100,220 150,300 50,300;150,300 50,300 100,220" dur="3s" begin="triangle.click" repeatCount="1"></animate>
+                    </polygon>
+                    <ellipse class="ellipse" cx="300" cy="260" rx="80" ry="50" fill="black" style="cursor:pointer;">
+                    </ellipse>
+                </svg>
+            </div>
+            <div class="description">
+                Kunstneren Fredreich Von Schwindel har i dette verket svart på Frøkelands
+                budskap i "De fire elementer". Von Schwindel har uttalt at han ønsket å fremvise sin
+                forakt for det etablerte og ønsket i denne sammenheng å gi en morbid vri på Frøkelands verk.
+                Verket er svært likt, men likevel svært forskjellig. På denne måten viser Von Schwindel oss
+                hvordan vår tolkning av våre menneskelige relasjoner er fullstendig hengitt vår tilnærming
+                til bekjenskapene.
+                </div>
+        </div>
+        <div class="documentation_wrapper">
+            <button class="doc_button">Vis/skjul dokumentasjon</button>
+            <div class="description" id="documentation_text">
+                Jeg valgte å bruke CSS-grid til oppsettet av nettsiden,
+                ettersom jeg fikk inntrykket av at jeg dermed får mer mulig funksjonalitet
+                og muligheter enn med Flexgrid. Jeg følte at det bare ville blitt rotete om jeg hadde brukt begge.
+                Måten jeg satte opp CSS-grid, var ved å deklarere en page wrapper for hele siden og en
+                content wrapper for side-innholdet. Page wrapperen delte jeg inn i to deler, en
+                for overskriften (som jeg ville ha fiksert) og en for det øvrige innholdet.
+                Content wrapperen delte jeg inn i tre, en til hvert bilde med tilhørende overskrifter + tekst
+                og en til dokumentasjonen med tilhørende knapp.
+                <br><br>
+                Ved å bruke CSS-grid med wrappers, kunne jeg enkelt stille inn style-settings for de ulike
+                elementene på nettsiden, uten å måtte redigere flere steder når flere CSS "bokser" skulle
+                ha like oppsett. For eksempel skulle alt innholdet utenom overskriften være sentrert, og
+                jeg trengte dermed kun å legge inn dette ett sted - i content wrapperen.
+                <br><br>
+                I Canvas kunstverket prøvde jeg å legge til elementer av diverse typer, med ulike
+                interaksjoner. Jeg gjorde alt av tegning og interaksjon i en ekstern JavaScript-fil.
+                Dette resulterte i betydelig mye mer kode enn med SVG, men jeg likte det personlig bedre.
+                Med scripting var det lettere å holde oversikt og koden ble mer forståelig.
+                Jeg tror også at erfaringene og kunnskapene opparbeidet med dette er lettere å anvende på
+                andre webstacker enn SVG. Jeg forsøkte å skrive god modulær kode som er enkel å forstå og
+                endre, dersom man ønsker å endre størrelse, farge eller posisjon på de ulike elementene i canvaset.
+                <br><br>
+                I SVG kunstverket prøvde jeg (som i Canvas kunstverket) å legge til elementer av
+                diverse typer, med ulike interaksjoner. Jeg kodet alt av interaksjon i HTML,
+                slik at jeg fikk litt erfaring med dette.
+                Mitt inntrykk var at SVG hadde bedre støtte for dette enn Canvas, som hovedsaklig
+                støttet seg på JavaScript APIet. Det var overraskende hvor mye interaksjon som kunne
+                implementeres uten bruk av JS scripting, med relativt lite kode. Ved hjelp av "animate"-
+                tagen kan man endre de ulike attributtene til formene man tegner og sette lengde på
+                animasjonen og hva som skulle trigge den.
+                <br><br>
+                For "Vis/skjul dokumentasjon"-knappen brukte jeg JQuery, beskrevet i en separat "jquery.js"-fil.
+                JavaScript-koden sjekker at dokumentet er klart og skjuler deretter dokumentasjons-teksten.
+                Deretter fader den inn teksten når lytteren registrerer et klikk på knappen.
+                Jeg valgte å kun bruke JQuery til knapp-funksjonaliteten fordi jeg fikk inntrykk av at biblioteket
+                var velegnet til dette formålet. Ettersom biblioteket er relativt utdatert, ville jeg ikke bruke
+                for mye tid på å lære meg det i dybden. For øvrig kom JQuery veldig til nytte for å justere
+                klikk-deteksjonen for Canvaset, ved hjelp av $(window).scrollTop().
+                <br><br>
+                Når det gjelder kilder, har jeg brukt en del tid på å lære meg HTML, CSS og JavaScript,
+                ettersom jeg ikke hadde så mye erfaring med disse språkene fra før av.
+                Jeg brukte hovedsaklig W3 til å lære meg HTML og CSS, samt JavaScript-boka på CodeQuizzes:
+                <br>
+                https://www.codequizzes.com/javascript-book
+                https://www.w3schools.com/css/default.asp
+                <br><br>
+                For SVG-grafikken har jeg hovedsaklig brukt Mozilla sine sider:
+                <br>
+                https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animateTransform
+                https://www.w3schools.com/graphics/svg_intro.asp
+                https://css-tricks.com/guide-svg-animations-smil/
+                <br><br>r
+                For Canvas grafikken har jeg også brukt Mozilla sine sider:
+                <br>
+                https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+                <br><br>
+                For JQuery har jeg hovedsaklig brukt W3 sine sider:
+                <br>
+                https://www.w3schools.com/jquery/
+            </div>
+        </div>
+        </div>
+</div>
+</body>
+</html>
